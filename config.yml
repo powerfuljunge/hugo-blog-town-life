@@ -1,0 +1,156 @@
+baseURL: https://hugo-theme-salt.okdyy75.com/
+languageCode: ja
+theme: hugo-theme-salt
+title: Hugoブログテーマ「Salt」
+copyright: © 2021 my_name
+author:
+  name: my_name
+  email: my_email@example.com
+  url: https://example.com/my_url
+googleAnalytics:
+disqusShortname:
+
+taxonomies:
+  category: categories
+  tag: tags
+  pickup: pickups
+  archive: archives
+
+disablePathToLower: true
+hasCJKLanguage: true
+summaryLength: 200
+pagination:
+  pagerSize: 10
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+
+related:
+  includeNewer: true
+  indices:
+    - name: keywords
+      weight: 100
+    - name: tags
+      weight: 90
+    - name: date
+      weight: 10
+  threshold: 80
+  toLower: false
+
+module:
+  mounts:
+    - source: static
+      target: static
+    - source: node_modules/@fortawesome/fontawesome-free/css/all.min.css
+      target: static/css/vendor/@fortawesome/fontawesome-free/css/all.min.css
+    - source: node_modules/@fortawesome/fontawesome-free/webfonts
+      target: static/css/vendor/@fortawesome/fontawesome-free/webfonts
+    - source: node_modules/github-markdown-css/github-markdown.css
+      target: static/css/vendor/github-markdown-css/github-markdown.css
+    # 検索に必要
+    - source: node_modules/lunr/lunr.min.js
+      target: static/js/vendor/lunr/lunr.min.js
+    - source: node_modules/lunr-languages/lunr.stemmer.support.js
+      target: static/js/vendor/lunr-languages/lunr.stemmer.support.js
+    - source: node_modules/lunr-languages/tinyseg.js
+      target: static/js/vendor/lunr-languages/tinyseg.js
+    - source: node_modules/lunr-languages/lunr.ja.js
+      target: static/js/vendor/lunr-languages/lunr.ja.js
+
+params:
+  description: このサイトはHugo用ブログテーマ「Salt」のサンプルサイトです
+  icon: image/icon.png
+  images:
+    - image/og_large.png
+  notFoundImage: image/404.png
+  dafaultNoimage: image/default_noimage.png
+  newArticleLimit: 5
+  rankingArticleLimit: 5
+  relatedArticleLimit: 2
+  imageQuality: 75
+  profile:
+    name: ユーザー名
+    description: プロフィール
+    icon: image/profile_icon.png
+    link:
+      twitter: twitter
+      instagram: instagram
+      facebook: https://www.facebook.com/facebook
+      youtube: https://www.youtube.com/user/YouTubeJapan
+      github: github
+      qiita: qiita
+      zenn: zenn
+      email: my_email@example.com
+      other: https://example.com/my_url
+  publisher:
+    type: Organization
+    name: my_organization
+    url: https://example.com/publisher
+    image: image/icon.png
+    description: organization_description
+    sameAs:
+      - https://example.com/sameAs
+  twitterTimeline: twitter
+
+menu:
+  header:
+    - name: Saltの使い方
+      url: /categories/Saltの使い方
+      weight: -100
+    - name: サンプル
+      url: /categories/サンプル
+      weight: -90
+    - name: Hugo
+      url: /tags/Hugo
+      weight: -80
+    - name: Go言語
+      url: /categories/Go言語
+      weight: -70
+  sidebar:
+    - name: Saltの使い方
+      url: /categories/Saltの使い方
+      pre: <i class="fa-2x fas fa-book"></i>
+      weight: -100
+    - name: Hugo
+      url: /tags/Hugo
+      pre: <i class="fa-2x fas fa-cog"></i>
+      weight: -90
+    - name: Go言語
+      url: /categories/Go言語
+      pre: <i class="fa-2x fas fa-laptop-code"></i>
+      weight: -80
+    - name: Tips
+      url: /tags/tips
+      pre: <i class="fa-2x fas fa-mobile-alt"></i>
+      weight: -70
+    - name: shortcode
+      url: /tags/ショートコード
+      pre: <i class="fa-2x fas fa-wrench"></i>
+      weight: -60
+    - name: サンプル
+      url: /categories/サンプル
+      pre: <i class="fa-2x fab fa-safari"></i>
+      weight: -50
+  footer:
+    - name: このサイトについて
+      url: /about
+      weight: -100
+      params:
+        position: left
+    - name: お知らせ
+      url: /information
+      weight: -90
+      params:
+        position: left
+    - name: プライバシーポリシー
+      url: /privacy-policy
+      weight: -100
+      params:
+        position: right
+    - name: お問い合わせ
+      url: https://github.com/okdyy75/hugo-theme-salt/issues
+      weight: -90
+      params:
+        position: right
