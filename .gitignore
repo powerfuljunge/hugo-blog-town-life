@@ -1,0 +1,30 @@
+# Hugo build files
+/public/
+/resources/_gen/
+hugo_stats.json
+
+# Config and local dev files
+/assets/jsconfig.json
+/.hugo_build.lock
+
+# Hugo executables
+hugo.exe
+hugo.darwin
+hugo.linux
+
+# Node modules
+node_modules
+
+# OS-specific files
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# macOS
+.DS_Store
+
+# Other private files
+.gcp
+.ssh
