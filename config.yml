@@ -21,6 +21,7 @@ hasCJKLanguage: true
 summaryLength: 200
 pagination:
   pagerSize: 10
+enableRobotsTXT: true
 
 markup:
   goldmark:
