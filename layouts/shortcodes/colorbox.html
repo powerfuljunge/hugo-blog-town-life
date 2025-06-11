@@ -1,0 +1,4 @@
+<div class="{{ .Get "style" }} colorbox-{{ .Get "color" }}">
+  <div class="colorbox-tab">{{ .Get "title" }}</div>
+  <div class="colorbox-body">{{ .Inner | markdownify }}</div>
+</div>

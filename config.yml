@@ -1,10 +1,10 @@
 baseURL: https://hugo-theme-salt.okdyy75.com/
 languageCode: ja
 theme: hugo-theme-salt
-title: Hugoブログテーマ「Salt」
-copyright: © 2021 my_name
+title: 後悔しない家づくりのための重要ポイント
+copyright: © 2024 後悔しない家づくりのための重要ポイント
 author:
-  name: my_name
+  name: 福の家マスター
   email: my_email@example.com
   url: https://example.com/my_url
 googleAnalytics:
@@ -60,7 +60,7 @@ module:
       target: static/js/vendor/lunr-languages/lunr.ja.js
 
 params:
-  description: このサイトはHugo用ブログテーマ「Salt」のサンプルサイトです
+  description: 注文住宅、リフォームなどの家づくりを安心にサポートする情報サイト
   icon: image/icon.png
   images:
     - image/og_large.png
@@ -71,76 +71,108 @@ params:
   relatedArticleLimit: 2
   imageQuality: 75
   profile:
-    name: ユーザー名
-    description: プロフィール
-    icon: image/profile_icon.png
-    link:
-      twitter: twitter
-      instagram: instagram
-      facebook: https://www.facebook.com/facebook
-      youtube: https://www.youtube.com/user/YouTubeJapan
-      github: github
-      qiita: qiita
-      zenn: zenn
-      email: my_email@example.com
-      other: https://example.com/my_url
-  publisher:
-    type: Organization
-    name: my_organization
-    url: https://example.com/publisher
-    image: image/icon.png
-    description: organization_description
-    sameAs:
-      - https://example.com/sameAs
-  twitterTimeline: twitter
+    name: 福の家マスター
+    description: 注文住宅、新築平屋、間取りプラン、リフォーム、資金計画、土地探しなどで後悔しないための情報を詳しく発信しています。
+    icon: image/profile_icon_fukunoya.webp
+    
+  tocCollapsed: true  # ← true = 折りたたみ（初期状態）、false = 開いた状態
 
 menu:
   header:
-    - name: Saltの使い方
-      url: /categories/Saltの使い方
+    - name: 注文住宅
+      identifier: house
       weight: -100
-    - name: サンプル
-      url: /categories/サンプル
+
+    - name: リフォーム
+      identifier: reform
       weight: -90
-    - name: Hugo
-      url: /tags/Hugo
+
+    - name: 土地活用
+      identifier: land
       weight: -80
-    - name: Go言語
-      url: /categories/Go言語
+
+    - name: 空き家解決
+      identifier: vacant
       weight: -70
+
+    - name: 物件情報
+      identifier: property
+      weight: -60
+
+    - name: Home
+      url: "/"
+      weight: 0
+
+  house:
+    - name: 【無料】家づくり計画書の一括見積
+      url: "https://townlife-aff.com/link.php?i=645b4ba18234f&m=675598c315568"
+      weight: 1
+    - name: 【無料】間取りプラン作成
+      url: "https://townlife-aff.com/link.php?i=5f2370a957a9b&m=675598c315568"
+      weight: 2
+    - name: 【無料】平屋住宅づくり
+      url: "https://townlife-aff.com/link.php?i=5a6fd184815fb&m=675598c315568" 
+      weight: 3
+    - name: 【無料】土地探し
+      url: "https://townlife-aff.com/link.php?i=5ff3f84eb12b4&m=675598c315568"
+      weight: 4
+
+  reform:
+    - name: 【無料】リフォーム見積比較 300万円が200万円も!
+      url: "https://townlife-aff.com/link.php?i=6552fc75c5f29&m=675598c315568"
+      weight: 1
+    - name: 【無料】リフォーム エクステリア・外構
+      url: "https://townlife-aff.com/link.php?i=5af29474c8a10&m=675598c315568"
+      weight: 2
+    - name: 【無料】リフォーム シロアリ
+      url: "https://townlife-aff.com/link.php?i=646ada4dbba74&m=675598c315568"
+      weight: 3
+  land:
+    - name: 【無料】最適な土地活用の提案
+      url: "https://townlife-aff.com/link.php?i=5a7127c9e2515&m=675598c315568"
+
+  vacant:
+    - name: 【無料】空き家解決診断
+      url: "https://townlife-aff.com/link.php?i=67aeb70c15445&m=675598c315568"
+
+  property:
+    - name: 【無料】ネット未公開の物件情報一括サービス
+      url: "https://townlife-aff.com/link.php?i=5a054bef01420&m=675598c315568"
+          
   sidebar:
-    - name: Saltの使い方
-      url: /categories/Saltの使い方
+    - name: 注文住宅
+      url: /categories/注文住宅
       pre: <i class="fa-2x fas fa-book"></i>
       weight: -100
-    - name: Hugo
-      url: /tags/Hugo
+    - name: リフォーム
+      url: /categories/リフォーム
       pre: <i class="fa-2x fas fa-cog"></i>
       weight: -90
-    - name: Go言語
-      url: /categories/Go言語
+    - name: 土地活用
+      url: /categories/土地活用
       pre: <i class="fa-2x fas fa-laptop-code"></i>
       weight: -80
-    - name: Tips
-      url: /tags/tips
+    - name: 空き家解決
+      url: /categories/空き家解決
       pre: <i class="fa-2x fas fa-mobile-alt"></i>
       weight: -70
-    - name: shortcode
-      url: /tags/ショートコード
+    - name: 物件情報
+      url: /categories/物件情報
       pre: <i class="fa-2x fas fa-wrench"></i>
       weight: -60
-    - name: サンプル
-      url: /categories/サンプル
+    - name: Home
+      url: "/"
       pre: <i class="fa-2x fab fa-safari"></i>
-      weight: -50
+      weight: -0
+    
   footer:
     - name: このサイトについて
       url: /about
       weight: -100
       params:
         position: left
-    - name: お知らせ
-      url: /information
+    - name: お問い合わせ
+      url: /contact
       weight: -90
       params:
         position: left
@@ -149,8 +181,10 @@ menu:
       weight: -100
       params:
         position: right
-    - name: お問い合わせ
-      url: https://github.com/okdyy75/hugo-theme-salt/issues
+    - name: 特商法表記
+      url: /legal
       weight: -90
       params:
         position: right
+theme = "salt"
+theme = "salt"

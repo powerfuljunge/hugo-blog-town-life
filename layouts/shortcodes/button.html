@@ -1,0 +1,9 @@
+<a href="{{ .Get "url" }}"
+   class="button {{ .Get "color" }}"
+   style="display: block;
+          width: {{ .Get "width" | default "auto" }};
+          max-width: {{ .Get "max" | default "none" }};
+          margin: 0 auto;
+          text-align: center;">
+  {{ .Inner }}
+</a>

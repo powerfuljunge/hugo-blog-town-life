@@ -1,0 +1,98 @@
+{{ define "header" }}
+    <div class="partials__header">
+        <div class="partials__header__title">
+            <a href="{{ $.Site.BaseURL }}">
+                {{ $.Site.Title }}
+            </a>
+            <div id="hamburger" class="spShow close partials__header__hamburger">
+                <div class="partials__header__hamburger__line"></div>
+            </div>
+        </div>
+        <div id="hamburgerMenu" class="close partials__header__menu">
+            <nav class="spShow partials__header__menu__search">
+                <form action="{{ "search/" | relURL }}" class="partials__header__menu__search__form">
+                    <input type="text" name="query" id="search" class="partials__header__menu__search__query">
+                    <button type="submit" class="partials__header__menu__search__button">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </form>
+            </nav>
+            <nav class="partials__header__menu__topMenu">
+                <ul class="partials__header__menu__topMenu__items">
+                  {{ range .Site.Menus.header }}
+                    {{ $children := index $.Site.Menus .Identifier }}
+                    <li class="partials__header__menu__topMenu__item {{ if $children }}has-submenu{{ end }}">
+                      {{ if $children }}
+                        <button class="menu-parent-toggle" type="button">
+                            <span class="menu-label">{{ .Name }}</span>
+                            <span class="menu-arrow">⌄</span>
+                        </button>
+                        <ul class="submenu">
+                          {{ range $children }}
+                            <li><a href="{{ .URL }}" target="_blank" rel="noopener">{{ .Name }}</a></li>
+                          {{ end }}
+                        </ul>
+                      {{ else }}
+                        <a href="{{ .URL }}" class="partials__header__menu__topMenu__itemLink">{{ .Name }}</a>
+                      {{ end }}
+                    </li>
+                  {{ end }}
+                </ul>
+
+            </nav>
+            <nav class="spShow partials__header__menu__sideMenu">
+                <h3 class="partials__header__menu__sideMenu__title">
+                    メニュー
+                </h3>
+                <ul class="partials__header__menu__sideMenu__items">
+                    {{ range .Site.Menus.sidebar }}
+                        <li class="partials__header__menu__sideMenu__item">
+                            <a href="{{ .URL }}" class="partials__header__menu__sideMenu__itemLink">
+                                <div class="partials__header__menu__sideMenu__itemIcon">
+                                    {{ .Pre }}
+                                </div>
+                                <div class="partials__header__menu__sideMenu__itemTitle">
+                                    {{ .Name }}
+                                </div>
+                            </a>
+                        </li>
+                    {{ end }}
+                </ul>
+            </nav>
+        </div>
+    </div>
+{{ end }}
+
+{{ define "header-script" }}
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // ハンバーガーメニューの開閉
+      document.querySelectorAll('#hamburger, #overlay').forEach(ele => {
+        ele.addEventListener('click', function (ev) {
+          document.querySelector('#hamburger').classList.toggle('open');
+          document.querySelector('#hamburger').classList.toggle('close');
+          document.querySelector('#hamburgerMenu').classList.toggle('open');
+          document.querySelector('#hamburgerMenu').classList.toggle('close');
+          document.querySelector('#overlay').classList.toggle('open');
+          document.querySelector('#overlay').classList.toggle('close');
+        });
+      });
+
+      // サブメニュー展開（スマホのみ）
+      if (window.innerWidth < 768) {
+        document.querySelectorAll('.menu-parent-toggle').forEach(btn => {
+          btn.addEventListener('click', function () {
+            const submenu = this.nextElementSibling;
+
+            // 他を閉じる
+            document.querySelectorAll('.submenu.open').forEach(item => {
+              if (item !== submenu) item.classList.remove('open');
+            });
+
+            submenu.classList.toggle('open');
+          });
+        });
+      }
+    });    
+    </script>
+{{ end }}
