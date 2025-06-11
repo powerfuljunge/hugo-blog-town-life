@@ -186,5 +186,4 @@ menu:
       weight: -90
       params:
         position: right
-theme = "salt"
-theme = "salt"
+theme: salt
