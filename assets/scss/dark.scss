@@ -55,3 +55,44 @@
     filter: brightness(1.1);
   }
 }
+
+  .submenu {
+    background-color: #1a1a1a !important;
+  }
+
+  .submenu li a {
+    color: #ffffff !important;
+  }
+
+  .submenu li a:hover {
+    background-color: #333 !important;
+  }
+
+  .menu-parent-toggle {
+    color: #ffffff !important;
+  }
+
+  .article-card,
+  .taxonomy__item,
+  .colorbox-tabbed,
+  .colorbox-wide,
+  .table-of-contents,
+  #TableOfContents {
+    background-color: #1e1e1e !important;
+    color: #ffffff !important;
+    border-color: #444 !important;
+  }
+
+  .article-card h2,
+  .taxonomy__item h2,
+  .colorbox-body,
+  .colorbox-tab {
+    color: #ffffff !important;
+  }
+
+  .pr-box,
+  .ad-container {
+    background-color: #1e1e1e !important;
+    color: #ffffff !important;
+  }
+
