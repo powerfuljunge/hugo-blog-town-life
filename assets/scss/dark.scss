@@ -1,0 +1,57 @@
+@media (prefers-color-scheme: dark) {
+  body,
+  .body,
+  .container,
+  .article,
+  .content,
+  .entry-content,
+  .post-content,
+  p,
+  li,
+  h1, h2, h3, h4, h5, h6 {
+    color: #ffffff !important;
+    background-color: #121212 !important;
+  }
+
+  a {
+    color: #8ab4f8 !important;
+  }
+
+  .colorbox-tabbed,
+  .colorbox-wide,
+  .taxonomy__item,
+  .article-card {
+    background-color: #1e1e1e !important;
+    color: #ffffff !important;
+    border-color: #555 !important;
+  }
+
+  .colorbox-tab {
+    background-color: #333 !important;
+    color: #ffffff !important;
+    border-color: #888 !important;
+  }
+
+  .taxonomy__item .read-more,
+  #TableOfContents a {
+    color: #8ab4f8 !important;
+  }
+
+  .submenu {
+    background: #1e1e1e !important;
+  }
+
+  .submenu li a {
+    color: #ffffff !important;
+  }
+
+  .submenu li a:hover {
+    background: #333 !important;
+  }
+
+  .button.blue,
+  .button.green,
+  .button.red {
+    filter: brightness(1.1);
+  }
+}

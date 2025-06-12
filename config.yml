@@ -77,6 +77,8 @@ params:
     icon: image/profile_icon_fukunoya.webp
     
   tocCollapsed: true  # ← true = 折りたたみ（初期状態）、false = 開いた状態
+  # customCSS:
+  #  - css/custom.css
 
 menu:
   header:
@@ -187,4 +189,4 @@ menu:
       weight: -90
       params:
         position: right
-theme: salt
+
