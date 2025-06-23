@@ -1,5 +1,5 @@
-/* CSS変数の定義 */
-:root {
+/* CSS変数定義：ライトテーマ */
+:root[data-theme="light"] {
   --background-color: #ffffff;
   --text-color: #000000;
   --border-color: #ccc;
@@ -9,28 +9,27 @@
   --menu-hover-background: #f0f0f0;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background-color: #121212;
-    --text-color: #ffffff;
-    --border-color: #555;
-    --link-color: #8ab4f8;
-    --card-background-color: #1e1e1e;
-    --menu-background: #1e1e1e;
-    --menu-hover-background: #333333;
-  }
+/* CSS変数定義：ダークテーマ */
+:root[data-theme="dark"] {
+  --background-color: #121212;
+  --text-color: #ffffff;
+  --border-color: #555;
+  --link-color: #8ab4f8;
+  --card-background-color: #1e1e1e;
+  --menu-background: #1e1e1e;
+  --menu-hover-background: #333333;
 }
 
 body {
   background-color: var(--background-color);
   color: var(--text-color);
+  font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", Roboto, sans-serif;
 }
 
 a {
   color: var(--link-color);
 }
 
-/* 小タブカラーBOX */
 .colorbox-tabbed {
   position: relative;
   border: 3px solid var(--link-color);
@@ -52,6 +51,7 @@ a {
     font-weight: bold;
     font-size: 0.9rem;
     z-index: 1;
+    color: var(--text-color);
   }
 
   .colorbox-body {
@@ -101,7 +101,6 @@ a {
   }
 }
 
-/* 同幅カラーBOX */
 .colorbox-wide {
   border: 3px solid var(--link-color);
   border-radius: 4px;
@@ -118,7 +117,7 @@ a {
     font-size: 1rem;
     border-bottom: 3px solid transparent;
     border-radius: 4px 4px 0 0;
-    color: #fff;
+    color: var(--text-color);
   }
 
   .colorbox-body {
@@ -131,6 +130,7 @@ a {
     background-color: #fdecea;
     .colorbox-tab {
       background-color: #f44336;
+      color: #eeeeee;
     }
   }
 
@@ -139,6 +139,7 @@ a {
     background-color: #e8f5e9;
     .colorbox-tab {
       background-color: #4caf50;
+      color: #eeeeee;
     }
   }
 
@@ -147,7 +148,7 @@ a {
     background-color: #fff8e1;
     .colorbox-tab {
       background-color: #fbc02d;
-      color: #333;
+      color: #333333;
     }
   }
 
@@ -156,6 +157,7 @@ a {
     background-color: #e3f2fd;
     .colorbox-tab {
       background-color: #2196f3;
+      color: #eeeeee;
     }
   }
 
@@ -164,6 +166,7 @@ a {
     background-color: #e0e3e5;
     .colorbox-tab {
       background-color: #b1b7bc;
+      color: #333333;
     }
   }
 }
@@ -210,6 +213,7 @@ a {
 
     h2 {
       margin-top: 0;
+      color: var(--text-color);
     }
 
     .article-card__thumb {
@@ -242,6 +246,7 @@ a {
   h2 {
     font-size: 1.2rem;
     margin-bottom: 0.5rem;
+    color: var(--text-color);
   }
 
   .read-more {
