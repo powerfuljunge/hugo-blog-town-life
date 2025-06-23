@@ -382,3 +382,20 @@ a {
   margin-top: 1rem;
   text-align: center;
 }
+
+/* 追加：色指定のリセット */
+body, 
+body p, 
+body li, 
+body h1, 
+body h2, 
+body h3, 
+body h4, 
+body h5, 
+body h6, 
+body .entry-content, 
+body .post-content, 
+body .taxonomy__item, 
+body .colorbox-body {
+  color: var(--text-color) !important;
+}

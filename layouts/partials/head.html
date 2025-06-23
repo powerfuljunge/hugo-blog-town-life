@@ -32,7 +32,6 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="color-scheme" content="only light">
     <title>{{ $title }}</title>
     <meta name='description' content='{{ $description }}'>
     {{- if $og_image_url -}}
@@ -97,7 +96,7 @@
     {{ end -}}
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" as="style">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" media="print" onload="this.media='all'">
-        
+    
     {{ $style := resources.Get "scss/style.scss" | toCSS | minify | fingerprint }}
     <link rel="stylesheet" href="{{ $style.Permalink }}">
 
@@ -117,7 +116,10 @@
         <script type="text/javascript" src="{{ "js/vendor/lunr-languages/lunr.ja.js" | absURL  }}"></script>
         <script type="text/javascript" src="{{ with  resources.Get "js/search.js" | minify }}{{ .RelPermalink }}{{ end }}"></script>
     {{ end }}
+
+    <!-- ここが今回追加するJS読み込み部分 -->
     <script src="{{ "js/theme-switcher.js" | relURL }}"></script>
+
     {{ partial "jsonld.html" . }}
     {{ template "_internal/google_analytics.html" . }}
 {{ end }}

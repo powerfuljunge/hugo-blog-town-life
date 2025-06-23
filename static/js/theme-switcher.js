@@ -1,3 +1,5 @@
+// 完全版 theme-switcher.js
+
 function applyTheme(theme) {
   if (theme === "dark") {
     document.documentElement.setAttribute("data-theme", "dark");
