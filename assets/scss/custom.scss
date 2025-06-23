@@ -20,14 +20,49 @@
   --menu-hover-background: #333333;
 }
 
+/* 本文部分だけ色を切り替える */
+.article-main,
+.entry-content,
+.post-content {
+  background-color: var(--background-color) !important;
+  color: var(--text-color) !important;
+}
+
+/* 全体リンク色は黒に固定 */
+a {
+  color: #000000;
+}
+
+/* ヘッダーやパンくずなどは黒固定 */
+.partials__header__title a,
+.breadcrumb a,
+.sidebar-category a {
+  color: #000000 !important;
+}
+
+/* 残りの body の基本フォント設定は維持 */
 body {
-  background-color: var(--background-color);
-  color: var(--text-color);
   font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", Roboto, sans-serif;
 }
 
-a {
-  color: var(--link-color);
+/* 切り替えボタンのスタイル */
+.theme-toggle-button {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  font-weight: bold;
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+  cursor: pointer;
+  z-index: 9999;
+}
+
+.theme-toggle-button:hover {
+  background-color: #e0e0e0;
 }
 
 .colorbox-tabbed {
@@ -381,21 +416,4 @@ a {
   padding: 0;
   margin-top: 1rem;
   text-align: center;
-}
-
-/* 追加：色指定のリセット */
-body, 
-body p, 
-body li, 
-body h1, 
-body h2, 
-body h3, 
-body h4, 
-body h5, 
-body h6, 
-body .entry-content, 
-body .post-content, 
-body .taxonomy__item, 
-body .colorbox-body {
-  color: var(--text-color) !important;
 }
