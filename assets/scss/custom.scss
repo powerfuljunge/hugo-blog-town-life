@@ -1,11 +1,43 @@
-// 小タブカラーBOX
+/* CSS変数の定義 */
+:root {
+  --background-color: #ffffff;
+  --text-color: #000000;
+  --border-color: #ccc;
+  --link-color: #2196f3;
+  --card-background-color: #f5f5f5;
+  --menu-background: #ffffff;
+  --menu-hover-background: #f0f0f0;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background-color: #121212;
+    --text-color: #ffffff;
+    --border-color: #555;
+    --link-color: #8ab4f8;
+    --card-background-color: #1e1e1e;
+    --menu-background: #1e1e1e;
+    --menu-hover-background: #333333;
+  }
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+a {
+  color: var(--link-color);
+}
+
+/* 小タブカラーBOX */
 .colorbox-tabbed {
   position: relative;
-  border: 3px solid #2196f3;
+  border: 3px solid var(--link-color);
   border-radius: 4px;
   padding: 1rem;
   margin: 2rem 0;
-  background: #ffffff;
+  background: var(--card-background-color);
 
   .colorbox-tab {
     display: inline-block;
@@ -13,8 +45,8 @@
     top: -1.1em;
     left: 1.2em;
     padding: 0.3em 1em;
-    background: #ffffff;
-    border: 3px solid #2196f3;
+    background: var(--card-background-color);
+    border: 3px solid var(--link-color);
     border-bottom: none;
     border-radius: 4px 4px 0 0;
     font-weight: bold;
@@ -69,18 +101,18 @@
   }
 }
 
-// 同幅カラーBOX
+/* 同幅カラーBOX */
 .colorbox-wide {
-  border: 3px solid #2196f3;
+  border: 3px solid var(--link-color);
   border-radius: 4px;
   padding: 1rem 1rem 0.5rem 1rem;
   margin: 2rem 0;
-  background: #ffffff;
+  background: var(--card-background-color);
 
   .colorbox-tab {
     display: block;
     width: 100%;
-    margin: -1.2rem -1rem 0.5rem -1rem; // 内側余白と揃える
+    margin: -1.2rem -1rem 0.5rem -1rem;
     padding: 0.6em 1em;
     font-weight: bold;
     font-size: 1rem;
@@ -136,7 +168,6 @@
   }
 }
 
-// 目次
 #TableOfContents ul {
   list-style: disc;
   margin-left: 1.5em;
@@ -144,7 +175,7 @@
 }
 
 #TableOfContents ul ul {
-  list-style: circle; // または square に変えてもOK
+  list-style: circle;
   margin-left: 1.5em;
 }
 
@@ -172,9 +203,10 @@
   }
 
   .article-card {
-    border: 1px solid #ccc;
+    border: 1px solid var(--border-color);
     padding: 1rem;
     border-radius: 8px;
+    background: var(--card-background-color);
 
     h2 {
       margin-top: 0;
@@ -197,9 +229,9 @@
 }
 
 .taxonomy__item {
-  background: #fff;
+  background: var(--card-background-color);
   padding: 1rem;
-  border: 1px solid #ddd;
+  border: 1px solid var(--border-color);
   border-radius: 6px;
 
   img {
@@ -215,7 +247,7 @@
   .read-more {
     display: inline-block;
     margin-top: 0.5rem;
-    color: #2196f3;
+    color: var(--link-color);
     font-weight: bold;
   }
 }
@@ -226,14 +258,14 @@
   .menu-parent-toggle {
     display: flex;
     align-items: center;
-    justify-content: center; // 中央揃え
-    white-space: nowrap;       // ← これで改行を防止
+    justify-content: center;
+    white-space: nowrap;
     gap: 0.25em;
     padding: 0.5rem 1rem;
     background: none;
     border: none;
     font: inherit;
-    cursor: pointer;    
+    cursor: pointer;
   }
   .menu-label {
     display: inline;
@@ -243,33 +275,33 @@
     font-size: 1.2em;
   }
 }
+
 .submenu {
   display: none;
   list-style: none;
   padding: 0;
   margin: 0;
-  background: #fff;
-  white-space: nowrap;  // ← 折返しさせない
+  background: var(--menu-background);
+  white-space: nowrap;
   text-align: left;
 
   li a {
     display: block;
     padding: 0.5rem 1rem;
     text-decoration: none;
-    color: #333;
+    color: var(--text-color);
     text-align: left;
 
     &:hover {
-      background: #f0f0f0;
+      background: var(--menu-hover-background);
     }
   }
 
   &.open {
     display: block;
   }
-}  
+}
 
-// PC hover対応
 @media (min-width: 768px) {
   .has-submenu:hover .submenu {
     display: block;
@@ -282,22 +314,21 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
   .menu-parent-toggle {
-    pointer-events: none; // PCではhover展開なのでクリック無効
+    pointer-events: none;
   }
 }
 
 .partials__header__menu__topMenu__items {
   display: flex;
-  justify-content: center;  // ← 中央揃えのポイント
+  justify-content: center;
   gap: 2rem;
   list-style: none;
   padding: 0;
   margin: 0;
-  flex-wrap: wrap; // 折返し対応（スマホ時）
-  min-width: 120px;    // 必要に応じて調整
+  flex-wrap: wrap;
+  min-width: 120px;
 }
 
-// リンク付ボタン
 .button {
   padding: 10px 16px;
   display: inline-block;
@@ -314,9 +345,8 @@
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
 }
 
-/* 薄めの色バリエーション */
 .button.blue {
-  background: linear-gradient(to bottom, #90caf9, #03599f); // 薄い〜中間の青
+  background: linear-gradient(to bottom, #90caf9, #03599f);
   color: #feffff;
   border: none;
 }
@@ -324,7 +354,7 @@
   background: linear-gradient(to bottom, #59a4ef, #1976d2);
 }
 .button.green {
-  background: linear-gradient(to bottom, #58e65d, #06af0e); // 薄い〜中間の緑
+  background: linear-gradient(to bottom, #58e65d, #06af0e);
   color: #fefefe;
   border: none;
   white-space: nowrap;
@@ -333,7 +363,7 @@
   background: linear-gradient(to bottom, #6ba32e, #388e3c);
 }
 .button.red {
-  background: linear-gradient(to bottom, #ef6464, #e21c1c); // 薄い〜少し濃い赤
+  background: linear-gradient(to bottom, #ef6464, #e21c1c);
   color: #ffffff;
   border: none;
 }
@@ -346,9 +376,4 @@
   padding: 0;
   margin-top: 1rem;
   text-align: center;
-}
-
-body {
-  background-color: #ffffff !important;
-  color: #000000 !important;
 }
