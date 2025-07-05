@@ -1,0 +1,73 @@
+// _typography.scss
+
+body {
+  font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Noto Sans JP",
+               Meiryo, -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI",
+               sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #222;
+  font-weight: bold;
+  line-height: 1.4;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+p {
+  margin-bottom: 1.2rem;
+}
+
+a {
+  color: #0366d6;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+/* パンくずリスト */
+.breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  font-size: 0.875rem;
+  color: #666;
+  margin: 1rem 0 0.5rem;
+  padding-left: 0.5rem;
+
+  a {
+    color: #555;
+    text-decoration: none;
+    font-weight: 500;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .breadcrumb-separator {
+    margin: 0 0.25rem;
+    color: #aaa;
+  }
+
+  .current {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-width: 0;
+    max-width: 100%;
+    display: inline-block;
+  }
+
+  @media screen and (max-width: 480px) {
+    .current {
+      max-width: 8em;
+    }
+  }
+}

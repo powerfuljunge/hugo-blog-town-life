@@ -1,0 +1,14 @@
+<section class="widget profile-widget">
+  <h2 class="widget-title">プロフィール</h2>
+  <div class="widget-content">
+    <div class="profile">
+      <img src="{{ .Site.Params.profile.image | relURL }}" alt="プロフィール画像" class="profile-image">
+      <div class="profile-name" style="text-align: center; font-weight: bold; margin-top: 0.5rem;">
+        {{ .Site.Params.profile.name }}
+      </div>
+      <div class="profile-description">
+        {{ .Site.Params.profile.description }}
+      </div>
+    </div>
+  </div>
+</section>

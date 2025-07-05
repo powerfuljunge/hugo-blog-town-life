@@ -1,0 +1,175 @@
+// _layout.scss
+
+.site-header {
+  text-align: center;
+  padding: 1rem;
+  border-bottom: 1px solid #ccc;
+
+  .site-title {
+    font-size: 2rem;
+    font-weight: bold;
+
+    a {
+      text-decoration: none;
+      color: #333;
+    }
+  }
+
+  .nav-menu {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2rem;
+
+    .nav-link,
+    .dropdown-item {
+      display: block;
+      padding: 0.5rem 1rem;
+      text-decoration: none;
+      color: #333;
+      font-size: 1rem;
+      white-space: nowrap; // ★ 追加：折り返し防止
+      overflow: hidden;
+      text-overflow: ellipsis;
+
+      &:hover {
+        background-color: #f0f0f0;
+        color: #000;
+      }
+    }
+  }
+
+  .mobile-toggle {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    display: none;
+  }
+
+  @media (max-width: 768px) {
+    .nav-menu {
+      display: none;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-top: 1rem;
+      width: 100%;
+
+      &.active {
+        display: flex;
+      }
+    }
+
+    .mobile-toggle {
+      display: block;
+      align-self: flex-end;
+    }
+  }
+}
+
+.layout-wrapper,
+.main-container {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+
+  main {
+    flex: 1;
+    min-width: 0;
+    order: 1;
+  }
+
+  aside.sidebar {
+    width: 280px;
+    flex-shrink: 0;
+    position: sticky;
+    top: 2rem;
+    align-self: flex-start;
+    height: fit-content;
+    order: 2;
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+
+    aside.sidebar {
+      width: 100%;
+      position: static;
+      top: auto;
+    }
+  }
+}
+
+.site-footer {
+  padding: 2rem 1rem;
+  background-color: #f8f8f8;
+  font-size: 0.95rem;
+  color: #444;
+
+  .footer-links {
+    margin-bottom: 1rem;
+    text-align: center;
+
+    a {
+      margin: 0 1rem;
+      color: inherit;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1rem;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .copyright,
+  .powerby {
+    text-align: center;
+    margin: 0.5rem 0;
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 600px) {
+    .footer-links a {
+      display: block;
+      margin: 0.5rem 0;
+    }
+  }
+}
+
+.breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  font-size: 0.9rem;
+  color: #666;
+  gap: 0.25rem;
+
+  a {
+    color: #555;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .current-page {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 10em;
+    display: inline-block;
+  }
+}
+
+.breadcrumb-wrapper {
+  flex: 1 1 auto;
+  min-width: 0;
+}

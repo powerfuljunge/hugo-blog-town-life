@@ -1,0 +1,12 @@
+{{ with .Site }}
+  {{ with .Taxonomies.categories }}
+    <section class="widget widget--categories">
+      <div class="widget-title">CATEGORIES</div>
+      <div class="widget-content">
+        {{ range $name, $taxonomy := . }}
+          <a href="{{ $taxonomy.Page.Permalink }}" class="category">{{ $name }}</a>
+        {{ end }}
+      </div>
+    </section>
+  {{ end }}
+{{ end }}

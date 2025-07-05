@@ -1,0 +1,12 @@
+{{ with .Site }}
+  {{ with .Taxonomies.tags }}
+    <section class="widget widget--tags">
+      <div class="widget-title">TAGS</div>
+      <div class="widget-content">
+        {{ range $name, $taxonomy := . }}
+          <a href="{{ $taxonomy.Page.Permalink }}" class="tag">{{ $name }}</a>
+        {{ end }}
+      </div>
+    </section>
+  {{ end }}
+{{ end }}

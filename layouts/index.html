@@ -1,0 +1,29 @@
+{{ define "main" }}
+{{ $dummy := .Site.Taxonomies.categories }}
+{{ $dummy2 := .Site.Taxonomies.tags }}
+
+<div class="card-grid">
+  {{ $paginator := .Paginate (where site.RegularPages "Type" "in" site.Params.mainSections) 10 }}
+  {{ range $paginator.Pages }}
+    {{ partial "article-list/tile.html" (dict "context" .) }}
+  {{ end }}
+</div>
+
+{{ if gt $paginator.TotalPages 1 }}
+  <nav class="pagination" aria-label="ページネーション">
+    {{ if $paginator.HasPrev }}
+      <a href="{{ $paginator.Prev.URL }}" class="page-link prev">← 前へ</a>
+    {{ end }}
+
+    {{ range $paginator.Pagers }}
+      <a href="{{ .URL }}" class="page-link {{ if eq . $paginator }}active{{ end }}">
+        {{ .PageNumber }}
+      </a>
+    {{ end }}
+
+    {{ if $paginator.HasNext }}
+      <a href="{{ $paginator.Next.URL }}" class="page-link next">次へ →</a>
+    {{ end }}
+  </nav>
+{{ end }}
+{{ end }}

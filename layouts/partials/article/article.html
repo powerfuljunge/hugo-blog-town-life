@@ -1,0 +1,48 @@
+<article class="main-article">
+  {{ partial "ad-disclaimer.html" }}
+
+  <div class="article-meta">
+    <div class="breadcrumb-and-date">
+      <div class="breadcrumb-wrapper">
+        {{ partial "breadcrumb.html" . }}
+      </div>
+      <div class="article-info">
+        {{ with .Date }}
+          <span class="created-date">📅 {{ .Format "2006-01-02" }}</span>
+        {{ end }}
+        {{ with .Lastmod }}
+          {{ if ne . $.Date }}
+            <span class="updated-date">📝 {{ .Format "2006-01-02" }}</span>
+          {{ end }}
+        {{ end }}
+      </div>
+    </div>
+
+    <h1 class="article-title">{{ .Title }}</h1>
+
+    {{ with .Params.tags }}
+      <div class="article-tags">
+        {{ range . }}
+          <span class="tag">{{ . }}</span>
+        {{ end }}
+      </div>
+    {{ end }}
+  </div>
+
+  {{ with .Resources.GetMatch "thumbnail.*" }}
+    <div class="article-thumbnail">
+      <img src="{{ .RelPermalink }}" alt="{{ $.Title }}">
+    </div>
+  {{ end }}
+
+  {{ if .Scratch.Get "TOCEnabled" }}
+    <details class="toc-wrap">
+      <summary><span class="toc-toggle-label">目次</span></summary>
+      <nav class="toc">{{ .TableOfContents }}</nav>
+    </details>
+  {{ end }}
+
+  <div class="article-body">
+    {{ .Content }}
+  </div>
+</article>

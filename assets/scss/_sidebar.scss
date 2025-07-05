@@ -1,0 +1,150 @@
+.sidebar {
+  width: 340px;
+  flex: 0 0 340px;
+  max-width: 340px;
+  font-size: 0.95rem;
+  position: sticky;
+  top: 2rem;
+  height: fit-content;
+  align-self: flex-start;
+
+  .widget {
+    background: #fff !important;
+    padding: 1.5rem;
+    margin-bottom: 1.25rem !important;
+    border-radius: 10px;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.05);
+  }
+
+  .widget:last-child {
+    margin-bottom: 0 !important;
+  }
+
+  .widget-title {
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin: 0 0 0.5rem;          // 上下の margin を最小限に
+    padding: 0;                  // padding 削除で縦幅縮小
+    line-height: 1.2;            // 行の高さも調整
+    border-bottom: none;         // 不要なら削除、薄く残すのも可
+  }
+
+  .widget-content {
+    color: #333;
+  }
+}
+
+/* プロフィール */
+.profile-widget .widget-content {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.profile-widget img {
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto 1rem;
+}
+
+.profile-name {
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: #444;
+  text-align: center;
+}
+
+.profile-description {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0 auto;
+  color: #333;
+}
+
+/* 広告：上部 */
+.ad-top-widget {
+  margin-top: -1.2rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+}
+
+/* 広告：下部 */
+.ad-bottom-widget {
+  background: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+  margin-top: 1.5rem;
+  text-align: center;
+
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+}
+
+/* カテゴリ・タグの共通スタイル */
+.sidebar .widget--categories a,
+.sidebar .widget--tags a {
+  display: inline-block;
+  font-size: 0.9rem;
+  padding: 0.3rem 0.8rem;
+  border-radius: 9999px;
+  margin: 0.3rem 0.3rem 0 0;
+  text-decoration: none;
+  transition: background 0.2s;
+  white-space: nowrap;
+}
+
+/* カテゴリはグリーン系 */
+.sidebar .widget--categories a {
+  background: #e6f3e6;
+  color: #2d7a2d;
+
+  &:hover {
+    background: #cde8cd;
+  }
+}
+
+/* タグはブルー系 */
+.sidebar .widget--tags a {
+  background: #eef6fa;
+  color: #0366d6;
+
+  &:hover {
+    background: #d0ecf9;
+  }
+}
+
+/* 検索ボックス */
+.search-widget input[type="text"] {
+  width: 100%;
+  padding: 0.6rem 1rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+/* モバイル対応 */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    position: static;
+    flex: none;
+    max-width: none;
+    margin-top: 2rem;
+  }
+}

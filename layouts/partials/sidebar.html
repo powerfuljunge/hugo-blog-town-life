@@ -1,0 +1,32 @@
+<aside class="sidebar">
+  {{ $scope := .Scope | default "page" }}
+  {{ $widgets := index site.Params.widgets $scope }}
+
+  {{ if in $widgets "ads-top" }}
+    {{ partial "widget/ads-top.html" .Context }}
+  {{ end }}
+
+  {{ if in $widgets "profile" }}
+    {{ partial "widget/profile.html" .Context }}
+  {{ end }}
+
+  {{ if in $widgets "search" }}
+    {{ partial "widget/search.html" .Context }}
+  {{ end }}
+
+  {{ if in $widgets "categories" }}
+    {{ with site.Taxonomies.categories }}
+      {{ partial "widget/categories.html" (dict "Site" site) }}
+    {{ end }}
+  {{ end }}
+
+  {{ if in $widgets "tags" }}
+    {{ with site.Taxonomies.tags }}
+      {{ partial "widget/tags.html" (dict "Site" site) }}
+    {{ end }}
+  {{ end }}
+
+  {{ if in $widgets "ads-bottom" }}
+    {{ partial "widget/ads-bottom.html" .Context }}
+  {{ end }}
+</aside>

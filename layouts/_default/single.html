@@ -1,0 +1,24 @@
+{{ define "main" }}
+  
+  {{ if eq .Type "posts" }}
+    {{ .Scratch.Set "TOCEnabled" true }}
+  {{ end }}
+
+  <article class="main-article">
+    {{ partial "article/article.html" . }}
+  </article>
+
+  {{ if .Params.links }}
+    {{ partial "article/components/links" . }}
+  {{ end }}
+
+  {{ if eq .Type "posts" }}
+    {{ partialCached "article/components/related-content" . }}
+  {{ end }}
+
+  {{ if not (eq .Params.comments false) }}
+    {{ partial "comments/include" . }}
+  {{ end }}
+
+  {{ partialCached "article/components/photoswipe" . }}
+{{ end }}

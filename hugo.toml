@@ -1,0 +1,51 @@
+baseURL = "http://sos-hotline.com/"
+languageCode = "ja"
+title = "後悔しない家づくりのための重要ポイント"
+theme = "stack"
+hasCJKLanguage = true
+enableInlineShortcodes = true
+
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+
+[params]
+  mainSections = ["posts"]
+  favicon = "favicon.ico"
+
+[params.sidebar]
+  subtitle = "ようこそ"
+
+[params.footer]
+  since = 2024
+
+[params.widgets]
+  page = ["toc", "ads-top", "profile", "search", "categories", "tags", "ads-bottom"]
+  homepage = ["ads-top", "profile", "search", "categories", "tags", "ads-bottom"]
+  
+[params.profile]
+  name = "福の家マスター"
+  description = "注文住宅、新築平屋、間取りプラン、リフォーム、資金計画、土地探しなどで後悔しないための情報を詳しく発信しています。"
+  image = "/images/profile_icon_fukunoya.webp"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+[related]
+  threshold = 80
+  includeNewer = true
+  toLower = true
+
+[[related.indices]]
+  name = "tags"
+  weight = 100
+
+[[related.indices]]
+  name = "categories"
+  weight = 80
+
+[[related.indices]]
+  name = "title"
+  weight = 20

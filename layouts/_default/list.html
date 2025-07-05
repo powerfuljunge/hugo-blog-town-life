@@ -1,0 +1,39 @@
+{{ define "main" }}
+<main class="taxonomy-list">
+  <h1>{{ .Title }}</h1>
+
+  {{ if .Data.Terms }}
+    <ul>
+      {{ range .Data.Terms.Alphabetical }}
+        <li>
+          <a href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a>
+        </li>
+      {{ end }}
+    </ul>
+  {{ else }}
+    <div class="card-grid">
+      {{ $paginator := .Paginate (where .Pages "Type" "in" site.Params.mainSections) 10 }}
+      {{ range $paginator.Pages }}
+        {{ partial "article-list/tile.html" (dict "context" .) }}
+      {{ end }}
+    </div>
+
+    {{ if gt $paginator.TotalPages 1 }}
+      <div class="pagination">
+        {{ if $paginator.HasPrev }}
+          <a href="{{ $paginator.Prev.URL }}" class="page-link">« Prev</a>
+        {{ end }}
+
+        {{ range $paginator.Pagers }}
+          <a href="{{ .URL }}" class="page-link {{ if eq . $paginator }}active{{ end }}">{{ .PageNumber }}</a>
+        {{ end }}
+
+        {{ if $paginator.HasNext }}
+          <a href="{{ $paginator.Next.URL }}" class="page-link">Next »</a>
+        {{ end }}
+      </div>
+    {{ end }}
+
+  {{ end }}
+</main>
+{{ end }}

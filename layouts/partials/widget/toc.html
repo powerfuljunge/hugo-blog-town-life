@@ -1,0 +1,10 @@
+{{ if (.Context.Scratch.Get "TOCEnabled") }}
+  <details class="toc-wrap">
+    <summary>
+      <span class="toc-toggle-label">目次 [開く]</span>
+    </summary>
+    <nav class="toc">
+      {{ .Context.TableOfContents }}
+    </nav>
+  </details>
+{{ end }}

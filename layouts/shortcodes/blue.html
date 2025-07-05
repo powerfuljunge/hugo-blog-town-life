@@ -1,0 +1,6 @@
+<div class="blue-box">
+  {{ if .Get "title" }}<div class="blue-title">{{ .Get "title" }}</div>{{ end }}
+  <div class="blue-content">
+    {{ .Inner | markdownify }}
+  </div>
+</div>

@@ -1,0 +1,8 @@
+<div class="green-box">
+  {{ with .Get "title" }}
+    <div class="green-title">{{ . }}</div>
+  {{ end }}
+  <div class="green-content">
+    {{ .Inner | markdownify  }}
+  </div>
+</div>

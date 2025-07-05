@@ -1,0 +1,32 @@
+{{ $ctx := .context }}
+{{ $image := $ctx.Resources.GetMatch "thumbnail.webp" }}
+{{ $resized := cond $image ( $image.Fill "600x338" ) nil }}
+
+<div class="card">
+  <a href="{{ $ctx.RelPermalink }}">
+    {{ if $resized }}
+    <div class="card-thumbnail">
+      <img src="{{ $resized.RelPermalink }}" alt="Thumbnail for {{ $ctx.Title }}" class="thumbnail-img" loading="lazy" />
+    </div>
+    {{ end }}
+    <div class="card-content">
+      <h2 class="card-title">{{ $ctx.Title }}</h2>
+      <p class="card-description">{{ $ctx.Plain | truncate 200 }}</p>
+      <p class="article-meta">
+        <span class="date">{{ $ctx.Date.Format "2006-01-02" }}</span>
+
+        {{ with $ctx.Params.categories }}
+          {{ range $index, $cat := . }}
+             <span class="category">{{ $cat }}</span>
+          {{ end }}
+        {{ end }}
+        
+        {{ with $ctx.Params.tags }}
+          {{ range $index, $tag := . }}
+             <span class="tag">{{ $tag }}</span>
+          {{ end }}
+        {{ end }}
+      </p>
+    </div>
+  </a>
+</div>

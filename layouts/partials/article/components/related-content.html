@@ -1,0 +1,24 @@
+<div class="related-content-section">
+  <h2 class="section-title">関連記事</h2>
+
+  <div class="related-content-list">
+    {{ $related := .Site.RegularPages.Related . }}
+    {{ range first 5 $related }}
+      <div class="card">
+        <a href="{{ .RelPermalink }}">
+          <img src="{{ .RelPermalink }}thumbnail.webp" alt="{{ .Title }}">
+          <div class="card-content">
+            <h3>{{ .Title }}</h3>
+            <div class="card-tags">
+              {{ range .Params.tags }}
+                <span class="tag">{{ . }}</span>
+              {{ end }}
+            </div>
+            <p class="card-summary">{{ .Plain | truncate 180 }}</p>
+            <p class="meta">{{ .Date.Format "2006-01-02" }}</p>
+          </div>
+        </a>
+      </div>
+    {{ end }}
+  </div>
+</div>
