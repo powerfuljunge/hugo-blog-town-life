@@ -1,9 +1,20 @@
-// _layout.scss
-
+/* =============================
+   Header (site-header)
+============================= */
 .site-header {
   text-align: center;
   padding: 1rem;
   border-bottom: 1px solid #ccc;
+
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
 
   .site-title {
     font-size: 2rem;
@@ -28,7 +39,7 @@
       text-decoration: none;
       color: #333;
       font-size: 1rem;
-      white-space: nowrap; // ★ 追加：折り返し防止
+      white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
 
@@ -36,6 +47,19 @@
         background-color: #f0f0f0;
         color: #000;
       }
+    }
+
+    .dropdown {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: white;
+      border: 1px solid #ddd;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+      min-width: 180px;
+      text-align: left;
     }
   }
 
@@ -47,6 +71,11 @@
   }
 
   @media (max-width: 768px) {
+    .mobile-toggle {
+      display: block;
+      align-self: flex-end;
+    }
+
     .nav-menu {
       display: none;
       flex-direction: column;
@@ -58,15 +87,24 @@
       &.active {
         display: flex;
       }
-    }
 
-    .mobile-toggle {
-      display: block;
-      align-self: flex-end;
+      .dropdown {
+        position: static !important;
+        border: none !important;
+        box-shadow: none !important;
+        padding-left: 1rem;
+      }
+
+      .dropdown-item {
+        padding-left: 1.5rem;
+      }
     }
   }
 }
 
+/* =============================
+   Layout Wrapper & Main Container
+============================= */
 .layout-wrapper,
 .main-container {
   display: flex;
@@ -104,6 +142,43 @@
   }
 }
 
+/* =============================
+   Main Container Responsive
+============================= */
+.main-container {
+  display: flex;
+  flex-direction: row;
+  max-width: 100%;
+  overflow-x: hidden;
+
+  @media screen and (max-width: 1024px) {
+    flex-direction: column;
+  }
+}
+
+/* =============================
+   Sidebar Responsive
+============================= */
+.sidebar {
+  width: 280px;
+  flex-shrink: 0;
+
+  @media screen and (max-width: 1024px) {
+    display: none;
+  }
+}
+
+/* =============================
+   Main Content
+============================= */
+.main.full-width {
+  width: 100%;
+  max-width: 100%;
+}
+
+/* =============================
+   Footer
+============================= */
 .site-footer {
   padding: 2rem 1rem;
   background-color: #f8f8f8;
@@ -143,6 +218,9 @@
   }
 }
 
+/* =============================
+   Breadcrumb
+============================= */
 .breadcrumb {
   display: flex;
   flex-wrap: wrap;
@@ -174,110 +252,9 @@
   min-width: 0;
 }
 
-// 防止：全体のはみ出しを無効化
+/* =============================
+   Global
+============================= */
 body {
   overflow-x: hidden;
-}
-
-// メインコンテナ（ヘッダー直下）のレイアウト制御
-.main-container {
-  display: flex;
-  flex-direction: row;
-  max-width: 100%;
-  overflow-x: hidden;
-
-  @media screen and (max-width: 1024px) {
-    flex-direction: column;
-  }
-}
-
-// サイドバーのレスポンシブ対応
-.sidebar {
-  width: 280px;
-  flex-shrink: 0;
-
-  @media screen and (max-width: 1024px) {
-    display: none;
-  }
-}
-
-// メインコンテンツが横に押し出されないように
-.main.full-width {
-  width: 100%;
-  max-width: 100%;
-}
-
-/* ヘッダーメニュー設定 */
-.site-header {
-  .container {
-    max-width: 960px;
-    margin: 0 auto;
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-  }
-
-  .site-title {
-    font-size: 2rem;
-    font-weight: bold;
-  }
-
-  .mobile-toggle {
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    display: none;
-  }
-
-  .nav-menu {
-    display: flex;
-    gap: 2rem;
-    flex-direction: row;
-    align-items: center;
-
-    .dropdown {
-      display: none;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      background: white;
-      border: 1px solid #ddd;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-      z-index: 1000;
-      min-width: 180px;
-      text-align: left;
-    }
-  }
-}
-
-@media (max-width: 768px) {
-  .mobile-toggle {
-    display: block;
-  }
-
-  .nav-menu {
-    display: none;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
-    margin-top: 1rem;
-    width: 100%;
-
-    &.active {
-      display: flex;
-    }
-
-    .dropdown {
-      position: static !important;
-      border: none !important;
-      box-shadow: none !important;
-      padding-left: 1rem;
-    }
-
-    .dropdown-item {
-      padding-left: 1.5rem;
-    }
-  }
 }
