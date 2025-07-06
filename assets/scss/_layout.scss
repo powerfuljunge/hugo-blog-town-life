@@ -206,3 +206,78 @@ body {
   width: 100%;
   max-width: 100%;
 }
+
+/* ヘッダーメニュー設定 */
+.site-header {
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .site-title {
+    font-size: 2rem;
+    font-weight: bold;
+  }
+
+  .mobile-toggle {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    display: none;
+  }
+
+  .nav-menu {
+    display: flex;
+    gap: 2rem;
+    flex-direction: row;
+    align-items: center;
+
+    .dropdown {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: white;
+      border: 1px solid #ddd;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+      min-width: 180px;
+      text-align: left;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .mobile-toggle {
+    display: block;
+  }
+
+  .nav-menu {
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-top: 1rem;
+    width: 100%;
+
+    &.active {
+      display: flex;
+    }
+
+    .dropdown {
+      position: static !important;
+      border: none !important;
+      box-shadow: none !important;
+      padding-left: 1rem;
+    }
+
+    .dropdown-item {
+      padding-left: 1.5rem;
+    }
+  }
+}
