@@ -21,4 +21,53 @@
       </div>
     {{ end }}
   </div>
+
+  <style>
+    .related-content-list {
+      display: flex;
+      overflow-x: auto;
+      gap: 1rem;
+      padding-bottom: 1rem;
+      scroll-snap-type: x mandatory;
+    }
+
+    .related-content-list::-webkit-scrollbar {
+      display: none; /* スクロールバー非表示（必要なら） */
+    }
+
+    .card {
+      flex: 0 0 auto;
+      width: 280px;
+      scroll-snap-align: start;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      overflow: hidden;
+      background-color: white;
+    }
+
+    .card img {
+      width: 100%;
+      height: auto;
+    }
+
+    .card-content {
+      padding: 0.75rem;
+    }
+
+    .card-tags {
+      margin-top: 0.5rem;
+    }
+
+    .card-summary {
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    .meta {
+      font-size: 0.8rem;
+      color: #999;
+      margin-top: 0.5rem;
+    }
+  </style>
+
 </div>

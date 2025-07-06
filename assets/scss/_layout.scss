@@ -173,3 +173,36 @@
   flex: 1 1 auto;
   min-width: 0;
 }
+
+// 防止：全体のはみ出しを無効化
+body {
+  overflow-x: hidden;
+}
+
+// メインコンテナ（ヘッダー直下）のレイアウト制御
+.main-container {
+  display: flex;
+  flex-direction: row;
+  max-width: 100%;
+  overflow-x: hidden;
+
+  @media screen and (max-width: 1024px) {
+    flex-direction: column;
+  }
+}
+
+// サイドバーのレスポンシブ対応
+.sidebar {
+  width: 280px;
+  flex-shrink: 0;
+
+  @media screen and (max-width: 1024px) {
+    display: none;
+  }
+}
+
+// メインコンテンツが横に押し出されないように
+.main.full-width {
+  width: 100%;
+  max-width: 100%;
+}

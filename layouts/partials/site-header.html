@@ -125,6 +125,8 @@
 <script>
   document.addEventListener("DOMContentLoaded", () => {
     const dropdowns = document.querySelectorAll(".dropdown-wrapper");
+    const navToggle = document.getElementById("nav-toggle");
+    const mainNav = document.getElementById("main-nav");
 
     dropdowns.forEach((dropdown) => {
       const toggle = dropdown.querySelector(".dropdown-toggle");
@@ -139,10 +141,7 @@
       });
     });
 
-    // モバイル対応
-    const navToggle = document.getElementById("nav-toggle");
-    const mainNav = document.getElementById("main-nav");
-
+    // モバイル切り替えボタン
     navToggle.addEventListener("click", () => {
       const isVisible = mainNav.style.display === "flex";
       mainNav.style.display = isVisible ? "none" : "flex";
@@ -151,13 +150,24 @@
       mainNav.style.gap = "1rem";
       mainNav.style.marginTop = "1rem";
     });
-  });
 
-  window.addEventListener("load", () => {
-    if (window.innerWidth < 768) {
-      document.getElementById("nav-toggle").style.display = "block";
-      document.getElementById("main-nav").style.display = "none";
+    // ウィンドウ幅に応じて表示切り替え
+    function updateNavDisplay() {
+      if (window.innerWidth < 768) {
+        navToggle.style.display = "block";
+        mainNav.style.display = "none";
+      } else {
+        navToggle.style.display = "none";
+        mainNav.style.display = "flex";
+        mainNav.style.flexDirection = "row";
+        mainNav.style.alignItems = "center";
+        mainNav.style.gap = "2rem";
+        mainNav.style.marginTop = "0";
+      }
     }
+
+    updateNavDisplay();
+    window.addEventListener("resize", updateNavDisplay);
   });
 </script>
 

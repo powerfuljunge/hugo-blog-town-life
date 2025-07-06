@@ -14,6 +14,49 @@
 
   {{ if eq .Type "posts" }}
     {{ partialCached "article/components/related-content" . }}
+    <!-- トップへ戻るボタン -->
+    <button id="backToTop" title="ページトップに戻る" style="
+      display: none;
+      position: fixed;
+      bottom: 2rem;
+      right: 1.5rem;
+      z-index: 999;
+      background: #333;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 48px;
+      height: 48px;
+      font-size: 1.5rem;
+      cursor: pointer;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    ">
+      ↑
+    </button>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const btn = document.getElementById("backToTop");
+
+        function checkScroll() {
+          const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+          const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+
+          if (scrollTop > docHeight * 0.5) {
+            btn.style.display = "block";
+          } else {
+            btn.style.display = "none";
+          }
+        }
+
+        btn?.addEventListener("click", () => {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        window.addEventListener("scroll", checkScroll);
+      });
+    </script>
+
   {{ end }}
 
   {{ if not (eq .Params.comments false) }}
