@@ -34,5 +34,54 @@
         {{ partial "footer/footer.html" . }}
         {{ partial "scripts.html" . }}
 
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                const dropdowns = document.querySelectorAll(".dropdown-wrapper");
+                const navToggle = document.getElementById("nav-toggle");
+                const mainNav = document.getElementById("main-nav");
+
+                dropdowns.forEach((dropdown) => {
+                const toggle = dropdown.querySelector(".dropdown-toggle");
+                const menu = dropdown.querySelector(".dropdown");
+
+                toggle.addEventListener("mouseenter", () => {
+                    menu.style.display = "block";
+                });
+
+                dropdown.addEventListener("mouseleave", () => {
+                    menu.style.display = "none";
+                });
+                });
+
+                navToggle?.addEventListener("click", () => {
+                const isVisible = mainNav.style.display === "flex";
+                mainNav.style.display = isVisible ? "none" : "flex";
+                mainNav.style.flexDirection = "column";
+                mainNav.style.alignItems = "flex-start";
+                mainNav.style.gap = "1rem";
+                mainNav.style.marginTop = "1rem";
+                });
+
+                function updateNavDisplay() {
+                if (window.innerWidth < 768) {
+                    if (navToggle) navToggle.style.display = "block";
+                    if (mainNav) mainNav.style.display = "none";
+                } else {
+                    if (navToggle) navToggle.style.display = "none";
+                    if (mainNav) {
+                    mainNav.style.display = "flex";
+                    mainNav.style.flexDirection = "row";
+                    mainNav.style.alignItems = "center";
+                    mainNav.style.gap = "2rem";
+                    mainNav.style.marginTop = "0";
+                    }
+                }
+                }
+
+                updateNavDisplay();
+                window.addEventListener("resize", updateNavDisplay);
+            });
+        </script>
+
     </body>
 </html>
