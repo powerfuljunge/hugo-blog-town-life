@@ -61,6 +61,14 @@
       min-width: 180px;
       text-align: left;
     }
+    .dropdown-wrapper {
+      position: relative;
+
+      &:hover .dropdown {
+        display: block;
+  }
+}
+
   }
 
   .mobile-toggle {
