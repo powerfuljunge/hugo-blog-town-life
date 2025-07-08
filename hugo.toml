@@ -12,6 +12,8 @@ enableInlineShortcodes = true
 [params]
   mainSections = ["posts"]
   favicon = "favicon.ico"
+  googleAnalytics = "G-9WMP54BVWF"
+
 
 [params.sidebar]
   subtitle = "ようこそ"
